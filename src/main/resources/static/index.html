@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" data-ng-app="cuentas">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/libs/bootstrap-4.3.1/css/bootstrap.css">
+    <title>Generador de cuentas</title>
+</head>
+
+<body>
+    <div class="container" data-ng-controller="cuentaControlador">
+        <!-- <div ng-show="cargando"> -->
+            <div class="col mt-5">
+                <form  name="formExpresion" data-ng-submit="submitExpresion(formExpresion.$valid , expresion)" autocomplete="off">
+                    <label for="inputExpresion" class="col-sm-2 col-form-label">Expresion:</label>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control form-control-lg"
+                                 ng-model="expresion"
+                                id="inputExpresion" placeholder="0000-00-000" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button type="submit" id="btnExpre" class="btn btn-primary btn-block">Iniciar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        <!-- </div> -->
+
+        <div ng-show="!cargando">
+            <div class="col-12 mt-5" ng-show="!cargando">
+                <div class="row d-flex justify-content-center">
+                    <span class="d-md-block">Insertando...</span>
+                    <div class="spinner-grow text-primary " role="status">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- <script src="assets/libs/bootstrap-4.3.1/js/bootstrap.js"></script> -->
+    <script src="assets/libs/angularjs/angular.min.js"></script>
+    <script src="app/modules/app.js"></script>
+    <script src="app/factories/factory.js"></script>
+    <script src="app/service/cuentaService.js"></script>
+    <script src="app/controllers/cuentaCtrl.js"></script>
+</body>
+
+</html>
